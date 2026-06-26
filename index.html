@@ -3,118 +3,362 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Swap ETH to BNB</title>
-  <meta name="description" content="Swap ETH to BNB lets you preview a direct ETH to BNB swap path before opening the app.">
+  <title>Swap ETH to BNB - Decentralized DeFi Portal</title>
+  <meta name="description" content="Secure, non-custodial portal for Swap ETH to BNB DeFi operations directly from your own wallet.">
   <link rel="canonical" href="https://swap-eth-to-bnb.github.io/">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#090A0D">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Swap ETH to BNB">
-  <meta property="og:description" content="Swap ETH to BNB lets you preview a direct ETH to BNB swap path before opening the app.">
-  <meta property="og:url" content="https://swap-eth-to-bnb.github.io/">
-  <meta property="og:image" content="https://swap-eth-to-bnb.github.io/favicon.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Swap ETH to BNB">
-  <meta name="twitter:description" content="Swap ETH to BNB lets you preview a direct ETH to BNB swap path before opening the app.">
+  <meta name="robots" content="index,follow">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://swap-eth-to-bnb.github.io/#website",
-        "url": "https://swap-eth-to-bnb.github.io/",
-        "name": "Swap ETH to BNB",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://swap-eth-to-bnb.github.io/#organization",
-        "name": "Swap ETH to BNB",
-        "url": "https://swap-eth-to-bnb.github.io/"
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://swap-eth-to-bnb.github.io/#app",
-        "name": "Swap ETH to BNB",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "url": "https://swap-eth-to-bnb.github.io/",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      }
-    ]
+  <link rel="prefetch" href="dashboard/">
+  <link rel="prerender" href="dashboard/">
+  <style>
+
+
+:root{
+  --bg:#090A0D;
+  --panel:#111319;
+  --panel-2:#171A22;
+  --ink:#F6F7F9;
+  --muted:#A6ACB6;
+  --soft:#737B87;
+  --line:rgba(255,255,255,.12);
+  --line-strong:rgba(255,255,255,.18);
+  --accent:#F0B90B;
+  --accent-soft:rgba(240,185,11,.15);
+  --shadow:0 30px 80px rgba(0,0,0,.42);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100dvh;
+  height:100dvh;
+  overflow:hidden;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 50% -20%, rgba(240,185,11,.16), transparent 36rem),
+    linear-gradient(180deg, #0E1015 0%, var(--bg) 58%);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+p,h1{margin:0}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex:0 0 auto;
+  min-height:68px;
+  padding:16px clamp(16px,4vw,42px);
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+.brand img{
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+
+.brand span{white-space:nowrap}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  margin-left:10px;
+}
+
+.nav a{
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:600;
+  line-height:1;
+}
+
+.nav a:hover{color:var(--ink)}
+.spacer{flex:1}
+
+.ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 17px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  color:var(--ink);
+  background:rgba(255,255,255,.04);
+  font-size:.9rem;
+  font-weight:800;
+  white-space:nowrap;
+  transition:transform .14s ease, border-color .14s ease, background .14s ease;
+}
+
+.ghost:hover{
+  transform:translateY(-1px);
+  border-color:rgba(240,185,11,.54);
+  background:rgba(240,185,11,.08);
+}
+
+.stage{
+  flex:1 1 auto;
+  min-height:0;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:28px;
+  width:min(100%, 1060px);
+  margin:0 auto;
+  padding:10px 18px 8px;
+  text-align:center;
+}
+
+.hero{
+  display:grid;
+  justify-items:center;
+  gap:14px;
+}
+
+h1{
+  font-size:clamp(3rem, 7vw, 5.35rem);
+  line-height:.95;
+  font-weight:850;
+  letter-spacing:0;
+}
+
+.value{
+  max-width:58ch;
+  color:var(--muted);
+  font-size:clamp(1rem, 1.75vw, 1.2rem);
+}
+
+.value strong{
+  color:var(--ink);
+  font-weight:800;
+  text-decoration:underline;
+  text-decoration-color:var(--accent);
+  text-decoration-thickness:.12em;
+  text-underline-offset:.16em;
+}
+
+.swap-card{
+  width:min(590px, 100%);
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)), var(--panel);
+  box-shadow:var(--shadow);
+}
+
+.route{
+  display:grid;
+  grid-template-columns:1fr 42px 1fr;
+  align-items:center;
+  gap:12px;
+}
+
+.leg{
+  min-width:0;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--panel-2);
+  text-align:left;
+}
+
+.label{
+  display:block;
+  color:var(--soft);
+  font-size:.69rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.chip{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
+  min-height:32px;
+}
+
+.token{
+  width:30px;
+  height:30px;
+  flex:0 0 auto;
+  border-radius:50%;
+}
+
+.symbol{
+  min-width:0;
+  overflow:hidden;
+  color:var(--ink);
+  font-size:1.14rem;
+  font-weight:850;
+  line-height:1;
+  text-overflow:ellipsis;
+}
+
+.switch{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+  color:#17140A;
+  background:var(--accent);
+  cursor:pointer;
+  font:900 1.12rem/1 system-ui, sans-serif;
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+
+.switch:hover{
+  transform:translateY(-1px);
+  box-shadow:0 0 0 6px var(--accent-soft);
+}
+
+.primary{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  margin-top:14px;
+  border-radius:8px;
+  background:var(--accent);
+  color:#12100A;
+  font-size:1rem;
+  font-weight:900;
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+
+.primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 34px rgba(240,185,11,.18);
+}
+
+.note{
+  margin-top:10px;
+  color:var(--soft);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.foot{
+  flex:0 0 auto;
+  padding:14px 18px 22px;
+  color:var(--soft);
+  font-size:.84rem;
+  font-weight:700;
+  text-align:center;
+}
+
+@media (max-width:700px){
+  .topbar{
+    min-height:58px;
+    padding:13px 14px;
+    gap:10px;
   }
-  </script>
+
+  .nav{display:none}
+  .brand{font-size:.98rem}
+  .ghost{
+    min-height:34px;
+    padding:0 13px;
+    font-size:.84rem;
+  }
+
+  .stage{
+    gap:20px;
+    padding:4px 14px 6px;
+  }
+
+  .hero{gap:11px}
+  h1{font-size:clamp(2.55rem, 13vw, 3.25rem)}
+  .value{
+    max-width:32ch;
+    font-size:.98rem;
+    line-height:1.45;
+  }
+
+  .swap-card{padding:14px}
+  .route{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+  .leg{padding:13px 14px}
+  .chip{margin-top:9px}
+  .switch{
+    justify-self:center;
+    width:38px;
+    height:38px;
+  }
+
+  .switch span{transform:rotate(90deg)}
+  .primary{
+    min-height:48px;
+    margin-top:12px;
+  }
+
+  .foot{padding:10px 18px 16px}
+}
+
+@media (max-height:680px){
+  .topbar{min-height:56px;padding-top:12px;padding-bottom:12px}
+  .stage{gap:18px}
+  h1{font-size:clamp(2.35rem, 6vw, 4rem)}
+  .swap-card{padding:14px}
+  .leg{padding:12px 14px}
+  .primary{min-height:46px}
+  .foot{padding-bottom:12px}
+}
+
+
+  
+.footer {
+  text-align: center !important;
+}
+  </style>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="Swap ETH to BNB home">
-      <img src="favicon.png" width="28" height="28" alt="">
+    <div class="brand">
+      <img src="favicon.png" width="30" height="30" alt="">
       <span>Swap ETH to BNB</span>
-    </a>
-    <nav class="nav" aria-label="Authority references">
-      <a href="https://etherscan.io/" target="_blank" rel="nofollow noopener noreferrer">Etherscan</a>
-      <a href="https://ethereum.org/defi/" target="_blank" rel="nofollow noopener noreferrer">ethereum.org</a>
-      <a href="https://www.coingecko.com/en/coins/usdc" target="_blank" rel="nofollow noopener noreferrer">CoinGecko</a>
-    </nav>
+    </div>
     <span class="spacer"></span>
-    <a class="ghost" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Open app</a>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="how-it-works/">How it works</a>
+      <a href="faq/">FAQ</a>
+      <a href="about/">About</a>
+      <a href="security/">Security</a>
+      <a href="supported-chains/">Supported Chains</a>
+    </nav>
   </header>
-
-  <main class="stage">
-    <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title">Swap ETH to BNB</h1>
-      <p class="value"><strong>Swap ETH to BNB</strong> lets you preview a direct ETH to BNB swap path before opening the app.</p>
-    </section>
-
-    <section class="swap-card" aria-label="Swap route preview">
-      <div class="route">
-        <div class="leg">
-          <span class="label">From</span>
-          <span class="chip">
-            <img class="token" src="eth.png" width="30" height="30" alt="ETH">
-            <span class="symbol">ETH</span>
-          </span>
-        </div>
-        <button class="switch" type="button" data-switch aria-label="Switch direction">
-          <span aria-hidden="true">&#8594;</span>
-        </button>
-        <div class="leg">
-          <span class="label">To</span>
-          <span class="chip">
-            <img class="token" src="usdc.png" width="30" height="30" alt="BNB">
-            <span class="symbol">BNB</span>
-          </span>
-        </div>
-      </div>
-      <a class="primary" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App</a>
-      <p class="note">Preview only</p>
-    </section>
+  <main class="stage" style="padding: 100px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
+    <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 24px; font-weight: 800;">Swap ETH to BNB</h1>
+    <p class="value" style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 40px; line-height: 1.6;">Secure, non-custodial gateway for decentralized operations. Connect your Web3 wallet to enter the portal.</p>
+    <a class="open-app" href="dashboard/" style="display: inline-flex; justify-content: center; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 9999px; background: var(--accent, #625bf3); color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.2s ease;">Open App Dashboard</a>
   </main>
-
-  <footer class="foot">Swap ETH to BNB &mdash; 2026</footer>
-
-  <script>
-  (function(){
-    "use strict";
-    var button = document.querySelector("[data-switch]");
-    if (!button) return;
-    button.addEventListener("click", function(){
-      var chips = document.querySelectorAll(".leg .chip");
-      if (chips.length < 2) return;
-      var first = chips[0].innerHTML;
-      chips[0].innerHTML = chips[1].innerHTML;
-      chips[1].innerHTML = first;
-    });
-  })();
-  </script>
+  <footer class="footer">Swap ETH to BNB &mdash; 2026</footer>
 </body>
 </html>

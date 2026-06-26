@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Swap ETH to BNB FAQ Help Center</title>
+  <meta name="description" content="Frequently asked questions regarding trading fees, liquidity, slippage, and safety.">
+  <link rel="canonical" href="https://swap-eth-to-bnb.github.io/faq/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Swap ETH to BNB FAQ Help Center">
+  <meta property="og:description" content="Frequently asked questions regarding trading fees, liquidity, slippage, and safety.">
+  <meta property="og:url" content="https://swap-eth-to-bnb.github.io/faq/">
+  <meta property="og:image" content="https://swap-eth-to-bnb.github.io/og-cover.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Swap ETH to BNB FAQ Help Center">
+  <meta name="twitter:description" content="Frequently asked questions regarding trading fees, liquidity, slippage, and safety.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="apple-touch-icon" href="../favicon.png">
+  <style>
+
+
+:root{
+  --bg:#090A0D;
+  --panel:#111319;
+  --panel-2:#171A22;
+  --ink:#F6F7F9;
+  --muted:#A6ACB6;
+  --soft:#737B87;
+  --line:rgba(255,255,255,.12);
+  --line-strong:rgba(255,255,255,.18);
+  --accent:#F0B90B;
+  --accent-soft:rgba(240,185,11,.15);
+  --shadow:0 30px 80px rgba(0,0,0,.42);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  min-height:100dvh;
+  height:100dvh;
+  overflow:hidden;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 50% -20%, rgba(240,185,11,.16), transparent 36rem),
+    linear-gradient(180deg, #0E1015 0%, var(--bg) 58%);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+}
+
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+p,h1{margin:0}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex:0 0 auto;
+  min-height:68px;
+  padding:16px clamp(16px,4vw,42px);
+}
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+  font-weight:800;
+  font-size:1.05rem;
+}
+
+.brand img{
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  border:1px solid var(--line);
+}
+
+.brand span{white-space:nowrap}
+.nav{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  margin-left:10px;
+}
+
+.nav a{
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:600;
+  line-height:1;
+}
+
+.nav a:hover{color:var(--ink)}
+.spacer{flex:1}
+
+.ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 17px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  color:var(--ink);
+  background:rgba(255,255,255,.04);
+  font-size:.9rem;
+  font-weight:800;
+  white-space:nowrap;
+  transition:transform .14s ease, border-color .14s ease, background .14s ease;
+}
+
+.ghost:hover{
+  transform:translateY(-1px);
+  border-color:rgba(240,185,11,.54);
+  background:rgba(240,185,11,.08);
+}
+
+.stage{
+  flex:1 1 auto;
+  min-height:0;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:28px;
+  width:min(100%, 1060px);
+  margin:0 auto;
+  padding:10px 18px 8px;
+  text-align:center;
+}
+
+.hero{
+  display:grid;
+  justify-items:center;
+  gap:14px;
+}
+
+h1{
+  font-size:clamp(3rem, 7vw, 5.35rem);
+  line-height:.95;
+  font-weight:850;
+  letter-spacing:0;
+}
+
+.value{
+  max-width:58ch;
+  color:var(--muted);
+  font-size:clamp(1rem, 1.75vw, 1.2rem);
+}
+
+.value strong{
+  color:var(--ink);
+  font-weight:800;
+  text-decoration:underline;
+  text-decoration-color:var(--accent);
+  text-decoration-thickness:.12em;
+  text-underline-offset:.16em;
+}
+
+.swap-card{
+  width:min(590px, 100%);
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)), var(--panel);
+  box-shadow:var(--shadow);
+}
+
+.route{
+  display:grid;
+  grid-template-columns:1fr 42px 1fr;
+  align-items:center;
+  gap:12px;
+}
+
+.leg{
+  min-width:0;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--panel-2);
+  text-align:left;
+}
+
+.label{
+  display:block;
+  color:var(--soft);
+  font-size:.69rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.chip{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
+  min-height:32px;
+}
+
+.token{
+  width:30px;
+  height:30px;
+  flex:0 0 auto;
+  border-radius:50%;
+}
+
+.symbol{
+  min-width:0;
+  overflow:hidden;
+  color:var(--ink);
+  font-size:1.14rem;
+  font-weight:850;
+  line-height:1;
+  text-overflow:ellipsis;
+}
+
+.switch{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+  color:#17140A;
+  background:var(--accent);
+  cursor:pointer;
+  font:900 1.12rem/1 system-ui, sans-serif;
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+
+.switch:hover{
+  transform:translateY(-1px);
+  box-shadow:0 0 0 6px var(--accent-soft);
+}
+
+.primary{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  margin-top:14px;
+  border-radius:8px;
+  background:var(--accent);
+  color:#12100A;
+  font-size:1rem;
+  font-weight:900;
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+
+.primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 34px rgba(240,185,11,.18);
+}
+
+.note{
+  margin-top:10px;
+  color:var(--soft);
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.foot{
+  flex:0 0 auto;
+  padding:14px 18px 22px;
+  color:var(--soft);
+  font-size:.84rem;
+  font-weight:700;
+  text-align:center;
+}
+
+@media (max-width:700px){
+  .topbar{
+    min-height:58px;
+    padding:13px 14px;
+    gap:10px;
+  }
+
+  .nav{display:none}
+  .brand{font-size:.98rem}
+  .ghost{
+    min-height:34px;
+    padding:0 13px;
+    font-size:.84rem;
+  }
+
+  .stage{
+    gap:20px;
+    padding:4px 14px 6px;
+  }
+
+  .hero{gap:11px}
+  h1{font-size:clamp(2.55rem, 13vw, 3.25rem)}
+  .value{
+    max-width:32ch;
+    font-size:.98rem;
+    line-height:1.45;
+  }
+
+  .swap-card{padding:14px}
+  .route{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+  .leg{padding:13px 14px}
+  .chip{margin-top:9px}
+  .switch{
+    justify-self:center;
+    width:38px;
+    height:38px;
+  }
+
+  .switch span{transform:rotate(90deg)}
+  .primary{
+    min-height:48px;
+    margin-top:12px;
+  }
+
+  .foot{padding:10px 18px 16px}
+}
+
+@media (max-height:680px){
+  .topbar{min-height:56px;padding-top:12px;padding-bottom:12px}
+  .stage{gap:18px}
+  h1{font-size:clamp(2.35rem, 6vw, 4rem)}
+  .swap-card{padding:14px}
+  .leg{padding:12px 14px}
+  .primary{min-height:46px}
+  .foot{padding-bottom:12px}
+}
+
+
+  
+
+/* --- Satellite Layout Styles (Appended dynamically by Builder) --- */
+:root {
+  --bg-fallback: var(--bg, var(--base, #f9fafc));
+  --ink-body-fallback: var(--ink-body, var(--text, var(--ink, #1f2937)));
+  --muted-fallback: var(--muted, var(--quiet, #4b5563));
+  --panel-fallback: var(--panel, var(--surface, #ffffff));
+  --panel-strong-fallback: var(--panel-strong, var(--surface-soft, var(--base-deep, #f3f4f6)));
+  --line-fallback: var(--line, rgba(0, 0, 0, 0.08));
+  --line-strong-fallback: var(--line-strong, rgba(0, 0, 0, 0.14));
+  --accent-fallback: var(--accent, #625bf3);
+}
+
+body {
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100dvh;
+}
+
+.satellite-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  width: 100%;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--muted-fallback);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a {
+  color: var(--muted-fallback);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-fallback);
+}
+
+.satellite-title {
+  font-size: clamp(2.1rem, 5.5vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: var(--ink-body-fallback);
+}
+
+.satellite-lead {
+  font-size: 1.125rem;
+  color: var(--muted-fallback);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.satellite-lead strong {
+  color: var(--ink-body-fallback);
+}
+
+.section-block {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.section-block h2 {
+  font-size: 1.55rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--ink-body-fallback);
+  border-bottom: 1px solid var(--line-fallback);
+  padding-bottom: 8px;
+}
+
+.section-block h3 {
+  font-size: 1.2rem;
+  font-weight: 650;
+  margin: 24px 0 12px;
+  color: var(--ink-body-fallback);
+}
+
+.section-block p {
+  color: var(--muted-fallback);
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.section-block p strong {
+  color: var(--ink-body-fallback);
+}
+
+.section-block ul, .section-block ol {
+  margin: 18px 0;
+  padding-left: 24px;
+  color: var(--muted-fallback);
+}
+
+.section-block li {
+  margin-bottom: 8px;
+  line-height: 1.65;
+}
+
+.section-block li strong {
+  color: var(--ink-body-fallback);
+}
+
+/* Info Grid Cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.info-card {
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid var(--line-fallback);
+  background-color: var(--panel-fallback);
+  text-align: left;
+}
+
+.info-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--ink-body-fallback);
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--muted-fallback);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line-fallback);
+  background-color: var(--panel-fallback);
+  margin: 28px 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+  text-align: left;
+}
+
+.data-table th {
+  padding: 15px 20px;
+  background-color: var(--panel-strong-fallback);
+  color: var(--ink-body-fallback);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line-fallback);
+}
+
+.data-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--line-fallback);
+  color: var(--muted-fallback);
+}
+
+.data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tr:hover td {
+  color: var(--ink-body-fallback);
+  background-color: var(--panel-strong-fallback);
+}
+
+.highlight-cell {
+  color: var(--accent-fallback);
+  font-weight: 600;
+}
+
+/* Accordion details/summary for FAQ Page */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.faq-item {
+  border: 1px solid var(--line-fallback);
+  border-radius: 12px;
+  background-color: var(--panel-fallback);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+  text-align: left;
+}
+
+.faq-item[open] {
+  border-color: var(--line-strong-fallback);
+}
+
+.faq-item summary {
+  padding: 20px 24px;
+  font-weight: 650;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: var(--ink-body-fallback);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  color: var(--muted-fallback);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent-fallback);
+}
+
+.faq-item summary:hover {
+  background-color: var(--panel-strong-fallback);
+}
+
+.faq-content {
+  padding: 0 24px 22px;
+  font-size: 0.95rem;
+  color: var(--muted-fallback);
+  line-height: 1.65;
+}
+
+/* Back Link Button */
+.back-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: var(--panel-fallback);
+  border: 1px solid var(--line-fallback);
+  border-radius: 9999px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--ink-body-fallback);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.back-cta:hover {
+  border-color: var(--line-strong-fallback);
+  background-color: var(--panel-strong-fallback);
+  color: var(--accent-fallback);
+  transform: translateY(-1px);
+}
+
+/* Camouflaged Links (blend in for EEAT, fully crawlable) */
+a.inline {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px dashed var(--line-strong-fallback);
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+a.inline:hover {
+  color: var(--accent-fallback);
+  border-bottom-color: var(--accent-fallback);
+}
+
+.footer {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 40px auto 0 !important;
+  padding: 20px 0 !important;
+}
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://swap-eth-to-bnb.github.io/#website",
+      "url": "https://swap-eth-to-bnb.github.io/",
+      "name": "Swap ETH to BNB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://swap-eth-to-bnb.github.io/faq/#webpage",
+      "url": "https://swap-eth-to-bnb.github.io/faq/",
+      "name": "Swap ETH to BNB FAQ Help Center",
+      "isPartOf": {
+        "@id": "https://swap-eth-to-bnb.github.io/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://swap-eth-to-bnb.github.io/faq/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://swap-eth-to-bnb.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Swap ETH to BNB FAQ Help Center"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://swap-eth-to-bnb.github.io/faq/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need to deposit funds into the DEX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Unlike centralized exchanges, Swap ETH to BNB is non-custodial. You trade directly from your own wallet, meaning you retain control over your assets at all times."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is slippage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Slippage is the price shift that occurs when a trade changes the pool's asset ratio. Large trades relative to pool depth experience higher slippage. You can inspect market depths on the <a class=\"inline\" href=\"https://www.coingecko.com/\" target=\"_blank\" rel=\"noopener noreferrer\">CoinGecko market caps</a> directory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I earn fees on the DEX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can earn fees by depositing equal values of token pairs into the liquidity pools. The contract pays you a proportional share of the exchange fees generated by trades, powering <a class=\"inline\" href=\"https://en.wikipedia.org/wiki/Decentralized_finance\" target=\"_blank\" rel=\"noopener noreferrer\">decentralized finance (DeFi)</a>."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Swap ETH to BNB">
+      <img src="../favicon.png" width="30" height="30" alt="">
+      <span>Swap ETH to BNB</span>
+    </a>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="../how-it-works/" >How it works</a>
+      <a href="../faq/" class="active">FAQ</a>
+      <a href="../about/" >About</a>
+      <a href="../security/" >Security</a>
+      <a href="../supported-chains/" >Supported Chains</a>
+    </nav>
+    <span class="spacer"></span>
+    <a class="open-app" href="../dashboard/" rel="noopener noreferrer">Open app</a>
+  </header>
+
+  <main class="satellite-container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../">Home</a> › <span>Swap ETH to BNB FAQ Help Center</span>
+    </nav>
+
+    <h1 class="satellite-title">Swap ETH to BNB FAQ Help Center</h1>
+    <p class="satellite-lead">Frequently asked questions regarding trading fees, liquidity, slippage, and safety.</p>
+
+    <div class="faq-list">
+      <details class="faq-item" id="faq-1">
+        <summary>Do I need to deposit funds into the DEX?</summary>
+        <div class="faq-content">
+          <p>No. Unlike centralized exchanges, Swap ETH to BNB is non-custodial. You trade directly from your own wallet, meaning you retain control over your assets at all times.</p>
+        </div>
+      </details>
+      <details class="faq-item" id="faq-2">
+        <summary>What is slippage?</summary>
+        <div class="faq-content">
+          <p>Slippage is the price shift that occurs when a trade changes the pool's asset ratio. Large trades relative to pool depth experience higher slippage. You can inspect market depths on the <a class="inline" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko market caps</a> directory.</p>
+        </div>
+      </details>
+      <details class="faq-item" id="faq-3">
+        <summary>How do I earn fees on the DEX?</summary>
+        <div class="faq-content">
+          <p>You can earn fees by depositing equal values of token pairs into the liquidity pools. The contract pays you a proportional share of the exchange fees generated by trades, powering <a class="inline" href="https://en.wikipedia.org/wiki/Decentralized_finance" target="_blank" rel="noopener noreferrer">decentralized finance (DeFi)</a>.</p>
+        </div>
+      </details></div>
+
+    <div style="margin: 40px 0; display: flex; justify-content: flex-start;">
+      <a class="open-app" href="../dashboard/" style="max-width: 320px; display: inline-flex; justify-content: center; text-decoration: none; padding: 12px 24px; font-weight: 700;">Open Swap ETH to BNB Portal</a>
+    </div>
+
+    <a class="back-cta" href="../">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Portal
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p class="disc" style="font-size: 0.78rem; opacity: 0.7; max-width: 650px; margin: 0 auto; line-height: 1.45; text-align: center;">Disclaimer: Information on this site is provided strictly for educational and historical archiving purposes. Swap ETH to BNB is a reference template. All product names, logos, and brands are property of their respective owners.</p>
+  </footer>
+</body>
+</html>

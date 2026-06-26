@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://swap-eth-to-bnb.github.io/sitemap.xml
