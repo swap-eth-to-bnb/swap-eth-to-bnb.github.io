@@ -1,56 +1,31 @@
 # Swap ETH to BNB
-> An independent informational dashboard for comparing non-custodial routes that convert ETH on Ethereum Mainnet into native BNB on BNB Smart Chain.
 
-## What is Swap ETH to BNB
-Swapping ETH to BNB is a cross-chain exchange because the source and destination assets exist on separate blockchains. It combines asset conversion with cross-chain transfer, often through a bridge, liquidity network, or intent-based solver. A simple bridge may deliver wrapped ETH on BNB Smart Chain rather than BNB; a complete cross-chain swap delivers the requested destination asset. Unlike a centralized exchange, a non-custodial route requires no exchange deposit account, although users still trust the selected protocol’s contracts and verification model.
-
-## How it works
-1. Connect an EVM-compatible wallet, select ETH on Ethereum Mainnet as the input, and select native BNB on BNB Smart Chain as the output.
-2. A routing service requests quotes that account for available liquidity, bridge paths, price impact, fees, and minimum output.
-3. After reviewing the destination chain, recipient, approvals, and minimum received, the user signs the required source-chain transaction.
-4. The selected route swaps and transfers value through bridge contracts or liquidity providers, then releases or purchases BNB on BNB Smart Chain for the recipient.
-5. Source and destination transactions can be verified independently using Etherscan and BscScan.
+> Swap ETH to BNB is a cross-chain route that converts Ether on Ethereum Mainnet into native BNB on BNB Smart Chain, non-custodially.
 
 ## Key facts
-- Ethereum Mainnet uses chain ID 1; BNB Smart Chain Mainnet uses chain ID 56.
-- ETH is Ethereum’s native gas asset and is not itself an ERC-20 token.
-- BNB is BNB Smart Chain’s native gas asset and is not itself a BEP-20 token.
-- WETH and WBNB are tokenized representations; they are not interchangeable with native assets in every application.
-- Ethereum and BNB Smart Chain are separate EVM-compatible networks with independent balances and transaction histories.
-- A dashboard can remain non-custodial while underlying route contracts temporarily lock, burn, mint, or exchange assets.
-- Bridge trust models vary and may rely on validators, oracles, multisignatures, liquidity providers, solvers, or underlying-chain verification.
-- Completion time is route-dependent and can increase because of confirmations, finality rules, liquidity, relayers, or network congestion.
-- Every valid transaction requires ETH for Ethereum gas; destination gas may be supplied as BNB, deducted from output, or required separately.
+- Token: Native BNB received on BNB Smart Chain; ETH sent on Ethereum Mainnet
+- Backing / peg: No peg — ETH and BNB are independent native assets; the route prices the conversion from live liquidity
+- Convert: One signed source-chain transaction through a router, bridge, or solver; BNB arrives on the destination chain
+- Networks: Ethereum Mainnet (chain ID 1) to BNB Smart Chain Mainnet (chain ID 56)
+- Costs: Ethereum gas in ETH, route/protocol fees, and price impact; destination gas may be supplied as BNB, deducted from output, or required separately
+- Verify: Check the router and bridge contracts, the destination chain, and the recipient — not the ticker
 
-## Common questions
-- **Is swapping ETH to BNB safe?** Safety depends on the route, contracts, approvals, verification system, and wallet security. Confirm chain 56, native BNB output, minimum received, contract permissions, and recipient before signing.
-- **Does the dashboard take custody?** The informational dashboard does not hold private keys or discretionary control over funds. Any executed transfer is governed by the connected wallet and the selected third-party protocol.
-- **What fees apply?** Total cost can include Ethereum gas, swap or bridge fees, liquidity-provider or solver charges, price impact, and destination execution costs. Compare final BNB received, not only the displayed exchange rate.
-- **How long does it take?** There is no universal settlement time. Check both transaction hashes and the selected provider’s status before retrying a delayed transfer.
-- **Which assets and chains are supported?** This topic specifically covers ETH on Ethereum Mainnet and native BNB on BNB Smart Chain; live route availability depends on the provider and amount.
-- **How do I start?** Use an EVM wallet containing ETH plus source-chain gas, request a quote, verify the route and recipient, then sign only the transactions you understand.
-- **What are the main risks?** Smart-contract exploits, compromised bridge operators, solver failure, bad token contracts, excessive approvals, slippage, phishing, wrong-network transfers, and low-liquidity routes can cause loss.
+## On this page
+- [What is Swap ETH to BNB?](https://swap-eth-to-bnb.github.io/#what)
+- [Getting in and out](https://swap-eth-to-bnb.github.io/#wrap)
+- [Swapping it on a DEX](https://swap-eth-to-bnb.github.io/#swap)
+- [The token vs its native asset](https://swap-eth-to-bnb.github.io/#vs)
+- [Costs and gas](https://swap-eth-to-bnb.github.io/#fees)
+- [Is Swap ETH to BNB safe?](https://swap-eth-to-bnb.github.io/#safety)
+- [Problems and fixes](https://swap-eth-to-bnb.github.io/#troubleshoot)
+- [FAQ](https://swap-eth-to-bnb.github.io/#faq)
 
 ## App
-- Dashboard: https://swap-eth-to-bnb.github.io/
-- App: https://swap-eth-to-bnb.github.io/dashboard/
+- [Swap ETH to BNB dashboard](https://swap-eth-to-bnb.github.io/)
+- [Open the app](https://swap-eth-to-bnb.github.io/dashboard/)
 
-## Official resources
-Ethereum Networks: https://ethereum.org/developers/docs/networks/
-Ethereum Bridge Documentation: https://ethereum.org/developers/docs/bridges/
-BNB Smart Chain Overview: https://docs.bnbchain.org/bnb-smart-chain/overview/
-BNB Smart Chain Wallet Configuration: https://docs.bnbchain.org/bnb-smart-chain/developers/wallet-configuration/
-BNB Chain Cross-Chain Bridge Guide: https://docs.bnbchain.org/bnb-smart-chain/cross-chain-bridge/
-BNB Chain Bridge: https://www.bnbchain.org/en/bnb-chain-bridge
-BNB Chain Canonical Bridge Source: https://github.com/bnb-chain/canonical-bridge
-Ethereum Official X: https://x.com/ethereum
-BNB Chain Official X: https://x.com/BNBCHAIN
-
-## Data & references
-Etherscan Ethereum Explorer: https://etherscan.io/
-BscScan BNB Smart Chain Explorer: https://bscscan.com/
-CoinGecko Ethereum: https://www.coingecko.com/en/coins/ethereum
-CoinGecko BNB: https://www.coingecko.com/en/coins/bnb
-DeFiLlama Bridge Data: https://defillama.com/bridges
-ERC-20 Standard: https://eips.ethereum.org/EIPS/eip-20
-Ethereum Mainnet Chain ID Standard: https://eips.ethereum.org/EIPS/eip-2228
+## Sources
+- [ethereum.org](https://ethereum.org/what-is-ether/)
+- [ethereum.org](https://ethereum.org/what-is-ethereum/)
+- [docs.bnbchain.org](https://docs.bnbchain.org/bnb-smart-chain/overview/)
+- [en.wikipedia.org](https://en.wikipedia.org/wiki/Ethereum)
