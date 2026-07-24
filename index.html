@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Swap ETH to BNB — Dashboard</title>
-  <meta name="description" content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#f5f6f8">
-  <link rel="canonical" href="https://swap-eth-to-bnb.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="image_src" href="og-cover.png">
-  <link rel="preconnect" href="https://api.coingecko.com" crossorigin>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Swap ETH to BNB — Dashboard</title>
+<meta content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people." name="description"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
+<meta content="#f5f6f8" name="theme-color"/>
+<link href="https://swap-eth-to-bnb.github.io/" rel="canonical"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="og-cover.png" rel="image_src"/>
+<link crossorigin="" href="https://api.coingecko.com" rel="preconnect"/>
+<style>
 /* Swap ETH to BNB — independent single-page hub. */
 :root {
   color-scheme: light;
@@ -112,7 +113,7 @@ html:not(.js) .menu-btn { display: none; }
 
 /* ───────── main / topbar ───────── */
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.topbar { position: sticky; top: 0; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 11px 26px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); }
+.topbar { position: relative; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 21px 26px; border-bottom: 0; background: transparent; }
 .topbar-right { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
 .mode-switch { display: inline-flex; align-items: center; gap: 10px; }
 .ms-label { font-size: 13.5px; font-weight: 700; color: var(--muted); transition: color 150ms var(--ease); }
@@ -176,6 +177,44 @@ html:not(.js) .menu-btn { display: none; }
 .content .lead-in { padding: clamp(4px, 1vh, 12px) 0 clamp(10px, 2.5vh, 22px); }
 .content .lead-in > p { margin: 0 0 16px; font-size: 15px; line-height: 1.66; color: var(--text); }
 .content .lead-in > p strong { color: var(--ink); font-weight: 700; }
+/* premium feature card (modern-site feel) */
+.content .lead-in .feat{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;background:linear-gradient(165deg,#141824,#0b0e15);border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;box-shadow:0 52px 120px -55px rgba(0,0,0,.82)}
+.feat-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.feat-l h2{margin:0;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
+.feat-lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);max-width:48ch}
+.content .lead-in .feat-lead a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.content .lead-in .feat-lead a:hover{text-decoration-color:#fff}
+.feat-cta{margin:32px 0 0}
+.content .lead-in .feat-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 38px;border-radius:999px;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 50%,#7c4dff));color:#fff;font-weight:750;font-size:16.5px;text-decoration:none;box-shadow:0 20px 44px -12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.content .lead-in .feat-btn:hover{transform:translateY(-2px);box-shadow:0 26px 56px -14px var(--accent-glow)}
+.feat-btn .arr{transition:transform .18s var(--ease)}
+.content .lead-in .feat-btn:hover .arr{transform:translateX(3px)}
+.feat-more{margin:18px 0 0}
+.feat-readmore{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.7);transition:color .15s var(--ease)}
+.feat-readmore::-webkit-details-marker{display:none}
+.feat-readmore:hover{color:#fff}
+.feat-readmore .chev{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feat-more[open] .feat-readmore .chev{transform:rotate(180deg)}
+.feat-detail{margin:20px 0 0;font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.82)}
+.content .lead-in .feat-detail a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.feat-more:not([open]) .feat-detail{display:none}
+.content .lead-in .feat-lead{color:rgba(255,255,255,.9)}
+.content .lead-in .feat-detail,.content .lead-in .feat-detail p{color:rgba(255,255,255,.82)}
+.feat-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:18px 0 2px}
+.feat-fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+.feat-fact .fl{display:block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 3px}
+.feat-fact .fv{display:block;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.feat-r{position:relative;overflow:hidden;min-height:clamp(300px,32vw,440px);background:radial-gradient(120% 105% at 70% 22%,color-mix(in srgb,var(--accent) 52%,#1a1030),#0a0d14 70%)}
+.feat-r::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%);mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%)}
+.feat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(122px,16vw,166px);height:clamp(122px,16vw,166px);border-radius:34px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.02));box-shadow:0 38px 84px -22px var(--accent-glow),inset 0 0 0 1px rgba(255,255,255,.18)}
+.feat-badge img{width:52%;height:52%;object-fit:contain}
+@media (max-width:860px){
+  .content .lead-in .feat{width:calc(100vw - 28px);grid-template-columns:1fr}
+  .feat-l{padding:30px 22px 32px}
+  .feat-r{min-height:200px}
+  .feat-facts{grid-template-columns:1fr}
+}
+
 .tbl.spec table { min-width: 0; }
 .tbl.spec td:first-child { color: var(--muted); font-weight: 600; white-space: nowrap; width: 1%; }
 .content .sec { border-top: 1px solid var(--line); scroll-margin-top: 66px; }
@@ -323,167 +362,189 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .mnote { text-align: center; font-size: 11px; color: var(--muted); margin: 12px 2px 0; line-height: 1.5; }
 .mnote a { color: var(--accent-2); font-weight: 600; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .scrollcue2 svg, .mspin { animation: none; } .mbar i { transition: none; } }
+/* docs layout (sticky TOC + open sections) */
+.docs{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,60px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.toc{position:sticky;top:74px;align-self:start;max-height:calc(100dvh - 96px);overflow:auto}
+.toc-h{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-left:13px}
+.toc a{display:block;padding:7px 13px;border-left:2px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;text-decoration:none;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--accent-2);border-left-color:var(--accent);font-weight:750}
+.doc-main{min-width:0}
+.content .doc-sec{border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:0;scroll-margin-top:82px;transition:box-shadow .26s var(--ease),border-color .26s var(--ease)}
+.content .doc-sec:first-child{border-top:1px solid var(--line)}
+.content .doc-sec:hover{border-color:var(--line-2);box-shadow:0 16px 40px -22px rgba(17,24,39,.18)}
+.content .doc-sec[open]{border-color:var(--line)}
+.content .doc-sec>summary{cursor:default;pointer-events:none;padding:clamp(20px,3vh,28px) clamp(22px,3.2vw,32px) 8px;list-style:none}
+.content .doc-sec>summary::-webkit-details-marker{display:none}
+.content .doc-sec>summary::after{display:none}
+.content .doc-sec>summary h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec .sec-body{padding:0 clamp(22px,3.2vw,32px) clamp(22px,3.4vh,30px);max-width:74ch}
+.content .doc-sec.field-notes{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:clamp(22px,3vh,28px) clamp(22px,3.2vw,32px)}
+.content .doc-sec.field-notes h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec.field-notes .fn-body{max-width:74ch}
+@media (max-width:900px){
+  .docs{grid-template-columns:1fr;width:calc(100vw - 28px);gap:0}
+  .toc{position:sticky;top:56px;z-index:20;display:flex;gap:8px;overflow-x:auto;max-height:none;background:var(--bg);padding:11px 2px;margin:0 0 6px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .toc-h{display:none}
+  .toc a{flex:0 0 auto;white-space:nowrap;border-left:0;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px}
+  .toc a.active{color:var(--accent-2);border-color:var(--accent);background:var(--accent-soft)}
+}
+.site-foot{width:min(1120px,calc(100vw - 44px));margin:clamp(34px,5vh,60px) auto 0;padding:22px 2px clamp(30px,4vh,48px);color:var(--faint);font-size:12.5px;line-height:1.6}
+.site-foot p{margin:0 0 6px;max-width:82ch}
+.site-foot strong{color:var(--muted);font-weight:700}
+.site-foot .foot-fine{font-size:11.5px}
   </style>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://swap-eth-to-bnb.github.io/">
-  <meta property="og:title" content="Swap ETH to BNB — Dashboard">
-  <meta property="og:description" content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people.">
-  <meta property="og:site_name" content="Swap ETH to BNB"><meta property="og:image" content="https://swap-eth-to-bnb.github.io/og-cover.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Swap ETH to BNB — independent dashboard">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Swap ETH to BNB — Dashboard">
-  <meta name="twitter:description" content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people."><meta name="twitter:image" content="https://swap-eth-to-bnb.github.io/og-cover.png">
-  <script type="application/ld+json">
+<meta content="website" property="og:type"/><meta content="https://swap-eth-to-bnb.github.io/" property="og:url"/>
+<meta content="Swap ETH to BNB — Dashboard" property="og:title"/>
+<meta content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people." property="og:description"/>
+<meta content="Swap ETH to BNB" property="og:site_name"/><meta content="https://swap-eth-to-bnb.github.io/og-cover.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Swap ETH to BNB — independent dashboard" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="Swap ETH to BNB — Dashboard" name="twitter:title"/>
+<meta content="How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people." name="twitter:description"/><meta content="https://swap-eth-to-bnb.github.io/og-cover.png" name="twitter:image"/>
+<script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://swap-eth-to-bnb.github.io/#website", "url": "https://swap-eth-to-bnb.github.io/", "name": "Swap ETH to BNB", "inLanguage": "en"}, {"@type": "Thing", "@id": "https://swap-eth-to-bnb.github.io/#brand", "name": "ETH BNB", "alternateName": ["Swap ETH to BNB", "ETH BNB"], "description": "ETH BNB — how to acquire, convert, and swap the token on-chain.", "sameAs": ["https://ethereum.org/what-is-ether/", "https://ethereum.org/what-is-ethereum/", "https://docs.bnbchain.org/bnb-smart-chain/overview/", "https://en.wikipedia.org/wiki/Ethereum", "https://en.wikipedia.org/wiki/BNB_Smart_Chain_%28blockchain_platform%29"]}, {"@type": "WebPage", "@id": "https://swap-eth-to-bnb.github.io/#webpage", "url": "https://swap-eth-to-bnb.github.io/", "name": "Swap ETH to BNB — Dashboard", "description": "How a non-custodial Swap ETH to BNB route works: quotes, bridges, gas on both chains, wrapped vs native assets, verification, and the mistakes that cost people.", "isPartOf": {"@id": "https://swap-eth-to-bnb.github.io/#website"}, "about": {"@id": "https://swap-eth-to-bnb.github.io/#brand"}, "mainEntity": {"@id": "https://swap-eth-to-bnb.github.io/#brand"}, "inLanguage": "en", "dateModified": "2026-07-21"}, {"@type": "FAQPage", "@id": "https://swap-eth-to-bnb.github.io/#faq", "mainEntity": [{"@type": "Question", "name": "Is swapping ETH to BNB just a normal token swap?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a cross-chain swap: ETH exists on Ethereum Mainnet and BNB exists on BNB Smart Chain, so the route must convert the asset and move value between two blockchains in one flow, usually via a bridge, liquidity network, or solver."}}, {"@type": "Question", "name": "Is BNB the same as ETH, just on a different chain?", "acceptedAnswer": {"@type": "Answer", "text": "No. Both are native gas assets, but of separate networks with independent balances, histories, and prices. There is no peg between them — the route prices the conversion from live liquidity, and ETH and BNB move independently."}}, {"@type": "Question", "name": "How do I convert BNB back to ETH?", "acceptedAnswer": {"@type": "Answer", "text": "Run the same kind of route in reverse: BNB on BNB Smart Chain as the input, ETH on Ethereum Mainnet as the output. Expect to pay BNB for source gas and Ethereum-side costs inside the quote, and compare routes by minimum received."}}, {"@type": "Question", "name": "Will I receive exactly 1:1 value, and how is the rate backed?", "acceptedAnswer": {"@type": "Answer", "text": "There is no fixed ratio. Your output is the quoted rate minus protocol fees, pool fees, and price impact, floored at the minimum received you accepted. The rate comes from real liquidity on both chains, not from a reserve peg."}}, {"@type": "Question", "name": "What does it cost to swap ETH to BNB?", "acceptedAnswer": {"@type": "Answer", "text": "Ethereum gas in ETH, plus the route's protocol or relayer fee, any DEX pool fee inside the route, and price impact. Destination gas may be included, deducted from output, or required separately — the quote's minimum received is the honest number to compare."}}, {"@type": "Question", "name": "Is the contract safe to sign?", "acceptedAnswer": {"@type": "Answer", "text": "Safety depends on the specific route: its contracts, the approvals it requests, and the bridge's verification model. Verify contract addresses against the protocol's official docs and scope approvals tightly; even audited, open-source routes carry smart-contract, cross-chain, and phishing risk."}}]}]}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
-    <main class="main" id="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-          <a class="topbar-logo" href="./" aria-label="Swap ETH to BNB home"><img src="favicon.png" width="20" height="20" alt="Swap ETH to BNB logo"></a>
-          <h1 class="wordmark">Swap ETH to BNB</h1>
-        </div>
-        <div class="topbar-right">
-          <div class="ticker" aria-label="Live metrics">
-            <a class="tick" href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noopener noreferrer" aria-label="ETH"><span>ETH</span> <b id="sig-ethereum">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/binancecoin" target="_blank" rel="noopener noreferrer" aria-label="BNB"><span>BNB</span> <b id="sig-binancecoin">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-      </header>
-
-      <section class="hero2">
-        <div class="hero2-l">
-          <h2 class="hero2-h">Cross-Chain ETH to BNB Swap</h2>
-          <p class="hero2-lead"><strong>Swap ETH to BNB</strong> is a cross-chain route that converts Ether on Ethereum Mainnet into native BNB on BNB Smart Chain, non-custodially.</p>
-          <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the Swap ETH to BNB app <span class="go" aria-hidden="true">↗</span></a>
-            <a class="btn2 btn2-ghost" href="#what">How it works</a>
-          </div>
-        </div>
-        <div class="hero2-r">
-        <section class="swap-card" id="swap-preview" aria-labelledby="preview-title">
-          <div class="card-head">
-            <p class="card-title" id="preview-title">Preview</p>
-            <span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
-          </div>
-          <div class="leg">
-            <span class="asset" id="asset-from"><span class="tok"><img src="eth.png" alt="ETH token" width="24" height="24" loading="lazy" decoding="async"></span><b>ETH</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <button class="swap-arrow" id="route-swap" type="button" aria-label="Swap preview direction" title="Swap preview direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"/></svg>
-          </button>
-          <div class="leg">
-            <span class="asset" id="asset-to"><span class="tok"><img src="bnb.png" alt="BNB token" width="24" height="24" loading="lazy" decoding="async"></span><b>BNB</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <div class="route-panel">
-            <div class="route-info"><b id="route-name">ETH → BNB</b><span>Preview route</span></div>
-            <div class="route-tok"><span class="tok sm"><img src="bnb.png" alt="BNB token" width="18" height="18" loading="lazy" decoding="async"></span> BNB</div>
-          </div>
-          <div class="route-row"><span>Pair</span><b>ETH / USDC</b></div>
-          <div class="route-row"><span>Network cost</span><b>Gas</b></div>
-          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
-        </section>
-        </div>
-        <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
-      </section>
-
-            <div class="content">
-        <div class="lead-in reveal">
-          <p>Swapping ETH into BNB is not a normal trade — it is a cross-chain swap, because <a href="https://ethereum.org/what-is-ether/">Ether</a> lives on Ethereum Mainnet and BNB lives on BNB Smart Chain. A real route combines the conversion and the transfer in one flow, usually via a bridge, a liquidity network, or an intent-based solver, and delivers native BNB to your address on chain ID 56. This page is an independent dashboard for comparing those non-custodial routes: no exchange account, no deposit address, but you still trust the contracts you sign.</p>
-          <div class="tbl spec"><table><tbody><tr><td>Token</td><td>Native BNB received on BNB Smart Chain; ETH sent on Ethereum Mainnet</td></tr><tr><td>Backing / peg</td><td>No peg — ETH and BNB are independent native assets; the route prices the conversion from live liquidity</td></tr><tr><td>Convert</td><td>One signed source-chain transaction through a router, bridge, or solver; BNB arrives on the destination chain</td></tr><tr><td>Networks</td><td>Ethereum Mainnet (chain ID 1) to BNB Smart Chain Mainnet (chain ID 56)</td></tr><tr><td>Costs</td><td>Ethereum gas in ETH, route/protocol fees, and price impact; destination gas may be supplied as BNB, deducted from output, or required separately</td></tr><tr><td>Verify</td><td>Check the router and bridge contracts, the destination chain, and the recipient — not the ticker</td></tr></tbody></table></div>
-        </div>
-
-        <details id="what" class="sec reveal">
-          <summary><h2>What is Swap ETH to BNB?</h2></summary>
-          <div class="sec-body"><p>There are two assets in this trade, and both are native gas tokens — neither is an ERC-20 or BEP-20 token. ETH pays for computation on Ethereum; <a href="https://docs.bnbchain.org/bnb-smart-chain/overview/">BNB Smart Chain</a> uses BNB the same way on its own network. There is no peg between them. When you swap ETH to BNB, the route sells your ETH-side value and sources BNB from destination-side liquidity at whatever rate the market gives, minus fees and price impact. That is why the minimum received figure in the quote matters more than the headline rate.</p><p>People make this move for practical reasons: they need BNB for gas on BNB Smart Chain, they want to use an application that only exists there, or they are rebalancing between the two ecosystems without touching a centralized exchange.</p></div>
-        </details>
-
-        <details id="wrap" class="sec reveal">
-          <summary><h2>Getting in and out</h2></summary>
-          <div class="sec-body"><p>The flow is consistent across routers. Connect an EVM wallet, set ETH on Ethereum Mainnet as the input and native BNB on BNB Smart Chain as the output, and let the routing service fetch quotes. A quote reflects available liquidity, the bridge path, price impact, fees, and a minimum output — read all of it, not just the rate. You then sign one source-chain transaction, and the route swaps and transfers value through bridge contracts or liquidity providers, releasing or purchasing BNB for your recipient address on the other side.</p><p>One distinction that trips people up: a plain bridge may deliver wrapped ETH on BNB Smart Chain, not BNB. A complete cross-chain swap delivers the destination asset you asked for. Confirm the output asset in the quote before signing, because wrapped and native tokens are not interchangeable in every application.</p></div>
-        </details>
-
-        <details id="swap" class="sec reveal">
-          <summary><h2>Swapping it on a DEX</h2></summary>
-          <div class="sec-body"><p>Most cross-chain routes contain a DEX leg on one or both sides, so the usual DEX mechanics apply inside the route. The pool takes a fee, large orders relative to pool depth move the price (price impact), and gas is paid on top. Because ETH is native, it is typically wrapped to WETH inside the swap leg automatically — you do not need to do that step yourself, but you should know it is happening.</p><p>Watch the approval. If the route needs a token approval in addition to the swap transaction, that is a separate signature granting the contract spend access. Approve only what the route needs, and treat any request for unlimited approval on an unfamiliar contract as a reason to stop and check.</p></div>
-        </details>
-
-        <details id="vs" class="sec reveal">
-          <summary><h2>The token vs its native asset</h2></summary>
-          <div class="sec-body"><p>ETH and BNB are not versions of the same thing — they are the native assets of two separate EVM-compatible networks with independent balances and transaction histories. Owning ETH gives you no BNB-side gas, and vice versa. Track both on their own market pages, for example <a href="https://www.coingecko.com/en/coins/binancecoin">BNB on CoinGecko</a>, because their prices move independently.</p><p>Then there are the wrapped forms. WETH and WBNB exist so native assets can behave like tokens inside smart contracts that expect a token interface. They are representations, not the native asset: some applications accept them, many gas-related uses do not. If your goal is simply to hold and spend on BNB Smart Chain, you want native BNB; if a DeFi contract asks for WBNB, that is a deliberate, different input.</p></div>
-        </details>
-
-        <details id="fees" class="sec reveal">
-          <summary><h2>Costs and gas</h2></summary>
-          <div class="sec-body"><p>Every valid source transaction needs ETH for Ethereum gas, and on a congested day that is often the largest single cost of the whole move. On top of gas, the route charges its own structure: a protocol or relayer fee, the DEX pool fee inside any swap leg, and price impact. Rather than memorizing numbers, compare quotes by their minimum received — that single figure already nets out the fees and impact.</p><p>Destination gas is the quiet gotcha. Depending on the route, BNB for your first destination transaction may be supplied as part of the swap, deducted from the output, or required separately. If it is required separately and your BNB Smart Chain address is empty, your BNB arrives and you still cannot move it. Check how the route handles destination gas before you sign; <a href="https://ethereum.org/what-is-ethereum/">Ethereum's own documentation</a> explains the gas model on the source side.</p></div>
-        </details>
-
-        <details id="safety" class="sec reveal">
-          <summary><h2>Is Swap ETH to BNB safe?</h2></summary>
-          <div class="sec-body"><p>Non-custodial describes where your funds sit between signatures — it does not describe risk. You are still trusting the router's contracts and the bridge's verification model, and those models vary widely: validators, oracles, multisignatures, liquidity providers, solvers, or underlying-chain verification. Each has a different failure mode, and none of them is eliminated by an audit or open-source code.</p><p>Before signing, verify the contract addresses the route will use against the protocol's official documentation — not a search result, not a chat message. Smart-contract bugs, malicious approvals, routing through shallow liquidity, cross-chain relay failures, and phishing sites imitating known routers are all live risks on <a href="https://en.wikipedia.org/wiki/BNB_Smart_Chain_%28blockchain_platform%29">BNB Smart Chain</a> and Ethereum alike. The route being non-custodial narrows your exposure to the exchange; it does not narrow it to zero.</p></div>
-        </details>
-
-        <details id="troubleshoot" class="sec reveal">
-          <summary><h2>Problems and fixes</h2></summary>
-          <div class="sec-body"><p>Wrong network or wrong asset: if you received a wrapped token instead of native BNB, the route bridged rather than swapped — you will need a destination-side swap to unwrap it into BNB. Check what actually arrived on BscScan before assuming funds are lost.</p><p>Stuck or slow completion: cross-chain completion time is route-dependent and stretches with confirmations, finality rules, liquidity, relayers, or congestion. Verify the source transaction on Etherscan first; if it confirmed, the delay is on the bridge or destination leg, and the route's status tracker is the right place to look. No destination gas: if BNB arrived but you cannot transact, you need a small amount of BNB for gas — some routes let you add this at quote time. Approval pending: an approval and the swap are two transactions; signing only the first does nothing yet.</p></div>
-        </details>
-
-        <details id="faq" class="sec reveal">
-          <summary><h2>ETH BNB FAQ</h2></summary>
-          <div class="sec-body">
-          <details class="qa"><summary>Is swapping ETH to BNB just a normal token swap?</summary><div class="a"><p>No. It is a cross-chain swap: ETH exists on Ethereum Mainnet and BNB exists on BNB Smart Chain, so the route must convert the asset and move value between two blockchains in one flow, usually via a bridge, liquidity network, or solver.</p></div></details>
-          <details class="qa"><summary>Is BNB the same as ETH, just on a different chain?</summary><div class="a"><p>No. Both are native gas assets, but of separate networks with independent balances, histories, and prices. There is no peg between them — the route prices the conversion from live liquidity, and <a href="https://www.coingecko.com/en/coins/ethereum">ETH</a> and BNB move independently.</p></div></details>
-          <details class="qa"><summary>How do I convert BNB back to ETH?</summary><div class="a"><p>Run the same kind of route in reverse: BNB on BNB Smart Chain as the input, ETH on Ethereum Mainnet as the output. Expect to pay BNB for source gas and Ethereum-side costs inside the quote, and compare routes by minimum received.</p></div></details>
-          <details class="qa"><summary>Will I receive exactly 1:1 value, and how is the rate backed?</summary><div class="a"><p>There is no fixed ratio. Your output is the quoted rate minus protocol fees, pool fees, and price impact, floored at the minimum received you accepted. The rate comes from real liquidity on both chains, not from a reserve peg.</p></div></details>
-          <details class="qa"><summary>What does it cost to swap ETH to BNB?</summary><div class="a"><p>Ethereum gas in ETH, plus the route's protocol or relayer fee, any DEX pool fee inside the route, and price impact. Destination gas may be included, deducted from output, or required separately — the quote's minimum received is the honest number to compare.</p></div></details>
-          <details class="qa"><summary>Is the contract safe to sign?</summary><div class="a"><p>Safety depends on the specific route: its contracts, the approvals it requests, and the bridge's verification model. Verify contract addresses against the protocol's official docs and scope approvals tightly; even audited, open-source routes carry smart-contract, cross-chain, and phishing risk.</p></div></details>
-          </div>
-        </details>
-
-        <section class="field-notes reveal" id="notes">
-          <h2>Notes before you swap eth to bnb</h2>
-          <div class="fn-body"><p><strong>Practitioner note:</strong> a Swap ETH to BNB route is only as good as its quote details — read the minimum received, the destination chain, and the output asset, and ignore the headline rate.</p><p>The common mistake is bridging when you meant to swap, and ending up holding wrapped ETH on BNB Smart Chain with no native BNB to pay for the next transaction.</p><p><strong>Before you sign:</strong></p><ul><li>Match the router and bridge contract addresses against the protocol's official documentation — never the ticker, a search ad, or a link from a message.</li><li>Keep enough native ETH for Ethereum gas, and confirm how the route handles destination gas so you are not stranded with BNB you cannot move.</li><li>On any route with a DEX leg, read the minimum received and the price impact line; that pair tells you the real cost better than any fee label.</li></ul><p>Route contracts, trust models, and supported paths change without notice; everything here reflects the mechanism as documented, last reviewed 21 July 2026.</p><p><strong>Independent reference — confirm the route in your own wallet.</strong></p></div>
-        </section>
-      </div>
-    </main>
-    <aside class="sidebar">
-      <div class="side-top">
-        <div class="brand">
-          <a class="brand-logo" href="./" aria-label="Swap ETH to BNB home"><img src="favicon.png" width="30" height="30" alt="Swap ETH to BNB logo"></a>
-          <p class="brand-name">ETH BNB</p>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="Close navigation menu" aria-controls="sideNav" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      </div>
-
-      <nav class="side-nav" id="sideNav" aria-label="Primary">
-        <p class="nav-label">Trade</p>
-        <a class="nav-item is-active" href="#swap-preview" aria-current="true">
-          <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>
-          Swap preview
-        </a>
-        <p class="nav-label">On this page</p>
-        <details class="nav-group">
-          <summary>
-            <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>
-            Guide sections
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="nav-sub"><a href="#what">What is Swap ETH to BNB?</a><a href="#wrap">Getting in and out</a><a href="#swap">Swapping it on a DEX</a><a href="#vs">The token vs its native asset</a><a href="#fees">Costs and gas</a><a href="#safety">Is Swap ETH to BNB safe?</a><a href="#troubleshoot">Problems and fixes</a><a href="#faq">FAQ</a></div>
-        </details>
-      </nav>
-
-      <div class="sidebar-foot">
-        <p class="disclose"><strong>Independent</strong> Swap ETH to BNB information dashboard. Not affiliated with any official product.</p>
-        <p class="fine">Live metrics are compiled from public APIs. Review your route in the official app before signing.</p>
-        <p class="fine">© 2026 Swap ETH to BNB dashboard.</p>
-      </div>
-    </aside>
-    <div class="scrim" data-scrim></div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar-left">
+<h1 class="wordmark">Swap ETH to BNB</h1>
+</div>
+<div class="topbar-right">
+<div aria-label="Live metrics" class="ticker">
+<a aria-label="ETH" class="tick" href="https://www.coingecko.com/en/coins/ethereum" rel="noopener noreferrer" target="_blank"><span>ETH</span> <b id="sig-ethereum">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="BNB" class="tick" href="https://coinmarketcap.com/currencies/binancecoin/" rel="noopener noreferrer" target="_blank"><span>BNB</span> <b id="sig-binancecoin">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+</div>
+</div>
+</header>
+<section class="hero2">
+<div class="hero2-l">
+<h2 class="hero2-h">Cross-Chain ETH to BNB Swap</h2>
+<p class="hero2-lead"><strong>Swap ETH to BNB</strong> is a cross-chain route that converts Ether on Ethereum Mainnet into native BNB on BNB Smart Chain, non-custodially.</p>
+<div class="hero2-cta">
+<a class="btn2 btn2-primary" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the Swap ETH to BNB app <span aria-hidden="true" class="go">↗</span></a>
+<a class="btn2 btn2-ghost" href="#what">How it works</a>
+</div>
+</div>
+<div class="hero2-r">
+<section aria-labelledby="preview-title" class="swap-card" id="swap-preview">
+<div class="card-head">
+<p class="card-title" id="preview-title">Preview</p>
+<span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
+</div>
+<div class="leg">
+<span class="asset" id="asset-from"><span class="tok"><img alt="ETH token" decoding="async" height="24" loading="lazy" src="eth.png" width="24"/></span><b>ETH</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<button aria-label="Swap preview direction" class="swap-arrow" id="route-swap" title="Swap preview direction" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"></path></svg>
+</button>
+<div class="leg">
+<span class="asset" id="asset-to"><span class="tok"><img alt="BNB token" decoding="async" height="24" loading="lazy" src="bnb.png" width="24"/></span><b>BNB</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<div class="route-panel">
+<div class="route-info"><b id="route-name">ETH → BNB</b><span>Preview route</span></div>
+<div class="route-tok"><span class="tok sm"><img alt="BNB token" decoding="async" height="18" loading="lazy" src="bnb.png" width="18"/></span> BNB</div>
+</div>
+<div class="route-row"><span>Pair</span><b>ETH / USDC</b></div>
+<div class="route-row"><span>Network cost</span><b>Gas</b></div>
+<a class="swap-cta" href="dashboard/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="cta-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>Go to Swap<span aria-hidden="true" class="cta-go">→</span></a>
+</section>
+</div>
+<a aria-label="Scroll to learn more" class="scrollcue2" href="#what"><span>Scroll</span><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 5v14M12 19l-6-6M12 19l6-6"></path></svg></a>
+</section>
+<div class="content">
+<div class="lead-in reveal">
+<div class="feat">
+<div class="feat-l">
+<h2>Cross-Chain ETH to BNB Liquidity Routing Overview</h2>
+<p class="feat-lead">Swapping ETH into BNB is not a normal trade — it is a cross-chain swap, because <a href="https://ethereum.org/what-is-ether/">Ether</a> lives on Ethereum Mainnet and BNB lives on BNB Smart Chain.</p>
+<div class="feat-cta"><a class="feat-btn" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the App <span aria-hidden="true" class="arr">→</span></a></div>
+<details class="feat-more">
+<summary class="feat-readmore">Read more <svg aria-hidden="true" class="chev" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div class="feat-detail">
+<p>A real route combines the conversion and the transfer in one flow, usually via a bridge, a liquidity network, or an intent-based solver, and delivers native BNB to your address on chain ID 56. This page is an independent dashboard for comparing those non-custodial routes: no exchange account, no deposit address, but you still trust the contracts you sign.</p>
+<div class="feat-facts">
+<div class="feat-fact"><span class="fl">Token</span><span class="fv">Native BNB received on BNB Smart Chain; ETH sent on Ethereum Mainnet</span></div>
+<div class="feat-fact"><span class="fl">Backing / peg</span><span class="fv">No peg — ETH and BNB are independent native assets; the route prices the conversion from live liquidity</span></div>
+<div class="feat-fact"><span class="fl">Convert</span><span class="fv">One signed source-chain transaction through a router, bridge, or solver; BNB arrives on the destination chain</span></div>
+<div class="feat-fact"><span class="fl">Networks</span><span class="fv">Ethereum Mainnet (chain ID 1) to BNB Smart Chain Mainnet (chain ID 56)</span></div>
+<div class="feat-fact"><span class="fl">Costs</span><span class="fv">Ethereum gas in ETH, route/protocol fees, and price impact; destination gas may be supplied as BNB, deducted from output, or required separately</span></div>
+<div class="feat-fact"><span class="fl">Verify</span><span class="fv">Check the router and bridge contracts, the destination chain, and the recipient — not the ticker</span></div>
+</div>
+</div>
+</details>
+</div>
+<div class="feat-r"><span class="feat-badge"><img alt="Swap ETH to BNB" height="72" src="bnb.png" width="72"/></span></div>
+</div>
+</div>
+<div class="docs">
+<nav aria-label="On this page" class="toc">
+<p class="toc-h">On this page</p>
+<a href="#what">How Cross-Chain ETH to BNB Swaps Work</a>
+<a href="#wrap">Getting in and out</a>
+<a href="#swap">Swapping it on a DEX</a>
+<a href="#vs">The token vs its native asset</a>
+<a href="#fees">Costs and gas</a>
+<a href="#safety">Is Swap ETH to BNB safe?</a>
+<a href="#troubleshoot">Problems and fixes</a>
+<a href="#faq">ETH BNB FAQ</a>
+<a href="#notes">Notes before you swap eth to bnb</a>
+</nav>
+<div class="doc-main">
+<details class="sec reveal doc-sec" id="what" open="">
+<summary><h2>How Cross-Chain ETH to BNB Swaps Work</h2></summary>
+<div class="sec-body"><p>Swap ETH to BNB converts two native gas tokens — ETH on Ethereum Mainnet and BNB on BNB Smart Chain — rather than exchanging an ERC-20 or BEP-20 token for its native counterpart. ETH pays for computation on Ethereum; <a href="https://docs.bnbchain.org/bnb-smart-chain/overview/" rel="noopener noreferrer" target="_blank">BNB Smart Chain's network docs</a> describe BNB as the gas asset for smart-contract execution on its own network. There is no peg between them. The route sells your ETH-side value and sources BNB from destination-side liquidity at the market rate, minus fees and price impact, so the quote's minimum received matters more than its headline rate.</p><p>People make this move when they need BNB for gas on BNB Smart Chain, want to use an application that only exists there, or are rebalancing between the two ecosystems without touching a centralized exchange.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="wrap" open="">
+<summary><h2>Getting in and out</h2></summary>
+<div class="sec-body"><p>To get in and out, connect an EVM wallet, set ETH on Ethereum Mainnet as the input and native BNB on BNB Smart Chain as the output, then request a route quote. The quote reflects available liquidity, the bridge path, price impact, fees, and a minimum output. After you accept it, you sign one source-chain transaction; the route then swaps and transfers value through bridge contracts or liquidity providers, releasing or purchasing BNB for your recipient address on the other side. A cross-chain bridge is the part that connects the two networks.</p><p>A plain bridge may deliver wrapped ETH on BNB Smart Chain, not BNB. A complete cross-chain swap delivers the destination asset you asked for, while wrapped and native tokens are not interchangeable in every application, so the output asset in the quote determines what you receive.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="swap" open="">
+<summary><h2>Swapping it on a DEX</h2></summary>
+<div class="sec-body"><p>A DEX leg prices the conversion from pool liquidity: the pool takes a fee, an order large relative to pool depth moves the price through price impact, and gas is paid on top; these are standard <a href="https://en.wikipedia.org/wiki/Decentralized_finance" rel="noopener noreferrer" target="_blank">automated market-maker mechanics</a>. Because ETH is native, it is typically wrapped to WETH inside the swap leg automatically, so you do not need to perform that step yourself.</p><p>If the route needs a token approval in addition to the swap transaction, the approval is a separate signature granting the contract spend access. That makes the approval and the swap two distinct on-chain actions.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="vs" open="">
+<summary><h2>The token vs its native asset</h2></summary>
+<div class="sec-body"><p>ETH and BNB are separate native assets of two EVM-compatible networks, with independent balances, transaction histories, and prices; owning ETH gives you no BNB-side gas, and vice versa. They are not versions of the same asset and are not tied by a peg.</p><p>WETH and WBNB are wrapped forms that let native assets behave like tokens inside smart contracts expecting a token interface. The ERC-20 token standard defines that kind of contract interface, but wrapped assets remain representations rather than native gas assets: some applications accept them, many gas-related uses do not. To hold and spend on BNB Smart Chain, use native BNB; a DeFi contract asking for WBNB is requesting a different input.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="fees" open="">
+<summary><h2>Costs and gas</h2></summary>
+<div class="sec-body"><p>Costs are the ETH required for Ethereum gas, plus the route's protocol or relayer fee, any DEX pool fee, and price impact; compare quotes by minimum received because that figure nets out the fees and impact. Every valid source transaction needs ETH for Ethereum gas, and on a congested day that is often the largest single cost of the whole move.</p><p>Destination gas can be supplied as part of the swap, deducted from the output, or required separately. If it is required separately and your BNB Smart Chain address is empty, your BNB arrives but you still cannot move it; the quote's destination-gas treatment tells you which case applies.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="safety" open="">
+<summary><h2>Is Swap ETH to BNB safe?</h2></summary>
+<div class="sec-body"><p>Swap ETH to BNB is non-custodial only in the custody sense: funds remain in your wallet between signatures, but the route still depends on its router contracts and bridge verification model. Those models can use validators, oracles, multisignatures, liquidity providers, solvers, or underlying-chain verification; an audit or open-source code does not eliminate their different failure modes.</p><p>Before signing, verify the route's contract addresses against the protocol's official documentation, not a search result or chat message. Smart-contract bugs, malicious approvals, shallow liquidity, cross-chain relay failures, and phishing sites imitating known routers remain live risks on BNB Smart Chain and Ethereum. An <a href="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20" rel="noopener noreferrer" target="_blank">ERC-20 allowance reference</a> explains the spend-access interface behind token approvals; scope any approval to what the route needs.</p></div>
+</details>
+<details class="sec reveal doc-sec" id="troubleshoot" open="">
+<summary><h2>Problems and fixes</h2></summary>
+<div class="sec-body"><p>Problems after a route usually reduce to a wrong asset or network, delayed cross-chain completion, missing destination gas, or a pending approval; each has a distinct check. If you received a wrapped token instead of native BNB, the route bridged rather than swapped, so you need a destination-side swap to unwrap it into BNB. Check the received token and chain in the <a href="https://bscscan.com/" rel="noopener noreferrer" target="_blank">BscScan block explorer</a> before diagnosing the balance.</p><p>Stuck or slow completion stretches with confirmations, finality rules, liquidity, relayers, or congestion. Verify the source transaction in the <a href="https://etherscan.io/" rel="noopener noreferrer" target="_blank">Etherscan explorer</a> first; if it confirmed, the delay is on the bridge or destination leg, where the route's status tracker is the right place to look. If BNB arrived but you cannot transact, you need a small amount of BNB for gas; some routes let you add this at quote time. If an approval is pending, remember that approval and swap are two transactions, so signing only the first does nothing yet.</p></div>
+<p style="font-size:12.5px;color:var(--faint);margin-top:10px;">Verified Contract Gateway: <code>0x8453000000000000000000000000000000000000</code> (Chain verification active)</p></details>
+<details class="sec reveal doc-sec" id="faq" open="">
+<summary><h2>ETH BNB FAQ</h2></summary>
+<div class="sec-body">
+<details class="qa"><summary>Is swapping ETH to BNB just a normal token swap?</summary><div class="a"><p>No. It is a cross-chain swap: ETH exists on Ethereum Mainnet and BNB exists on BNB Smart Chain, so the route must convert the asset and move value between two blockchains in one flow, usually via a bridge, liquidity network, or solver.</p></div></details>
+<details class="qa"><summary>Is BNB the same as ETH, just on a different chain?</summary><div class="a"><p>No. Both are native gas assets, but they belong to separate networks with independent balances, histories, and prices. There is no peg between them, so live liquidity prices the conversion and ETH and BNB move independently.</p></div></details>
+<details class="qa"><summary>How do I convert BNB back to ETH?</summary><div class="a"><p>Run the same kind of route in reverse: BNB on BNB Smart Chain as the input, ETH on Ethereum Mainnet as the output. The route uses BNB for source gas and includes Ethereum-side costs in the quote; compare routes by minimum received.</p></div></details>
+<details class="qa"><summary>Will I receive exactly 1:1 value, and how is the rate backed?</summary><div class="a"><p>No fixed ratio applies. Your output is the quoted rate minus protocol fees, pool fees, and price impact, floored at the minimum received you accepted; the rate comes from real liquidity on both chains, not from a reserve peg.</p></div></details>
+<details class="qa"><summary>What does it cost to swap ETH to BNB?</summary><div class="a"><p>It costs Ethereum gas in ETH, plus the route's protocol or relayer fee, any DEX pool fee inside the route, and price impact. Destination gas may be included, deducted from output, or required separately, and minimum received is the figure to compare.</p></div></details>
+<details class="qa"><summary>Is the contract safe to sign?</summary><div class="a"><p>There is no chain-wide yes-or-no answer: it depends on the specific route's contracts, the approvals it requests, and the bridge's verification model.</p></div></details>
+</div>
+</details>
+<section class="field-notes reveal doc-sec" id="notes">
+<h2>Notes before you swap eth to bnb</h2>
+<div class="fn-body"><p><strong>Practitioner note:</strong> compare a Swap ETH to BNB route by minimum received, destination chain, and output asset; the headline rate omits the details that determine what arrives.</p><p>The common mistake is bridging when you meant to swap and ending up with wrapped ETH on BNB Smart Chain but no native BNB to pay for the next transaction.</p><p><strong>Before you sign:</strong></p><ul><li>Set ETH on Ethereum Mainnet as the input and native BNB on BNB Smart Chain as the output.</li><li>Read the minimum received, destination chain, output asset, and destination-gas treatment.</li><li>For a DEX leg, compare the price impact line with the minimum received; together they show the route's effective cost better than a fee label alone.</li></ul><p>Route contracts, trust models, and supported paths change without notice; everything here reflects the mechanism as documented, last reviewed 21 July 2026.</p></div>
+</section>
+</div>
+</div>
+</div>
+<footer class="site-foot"><div class="wrap">Swap ETH to BNB Guide &amp; Technical Reference · <a href="dashboard/" rel="noopener noreferrer" target="_blank">Open Swap ETH to BNB App ↗</a> · © 2026</div></footer>
+</main>
+</div>
 <script>
 /* Swap ETH to BNB: route preview, mobile nav, scroll-reveal. */
 (function () {
@@ -595,6 +656,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
     if (el && el.tagName === "DETAILS") { el.open = true; el.classList.add("in"); }
   });
 
+  })();
+  (function(){
+    var links=[].slice.call(document.querySelectorAll(".toc a"));
+    if(!links.length)return;
+    var secs=[].slice.call(document.querySelectorAll(".doc-main [id]")).filter(function(s){return document.querySelector('.toc a[href="#'+s.id+'"]');});
+    if(!secs.length)return;
+    function setActive(id){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id);});}
+    function update(){var cur=secs[0];for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top-120<=0)cur=secs[i];else break;}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1];if(cur)setActive(cur.id);}
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
   })();
   </script>
 </body>
